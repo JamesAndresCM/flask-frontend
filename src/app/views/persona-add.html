@@ -1,0 +1,40 @@
+<style type="text/css">
+.example-container {
+  flex-direction: column;
+}
+.example-container > * {
+  width: 100%;
+}
+.mat-form-field{
+  width:400px !important;
+}
+
+.row-center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+</style>
+
+  <div class="example-container">
+    <form class="example-container" [formGroup]="_personaForm" (submit)="onSubmit()">
+          <mat-form-field>
+            <input matInput formControlName="persona_nombre" placeholder="Nombre" pattern="[a-zA-Z]" required>
+          </mat-form-field>
+          <br>
+          <mat-form-field>
+            <input matInput formControlName="persona_apellido" placeholder="Apellido" required>
+          </mat-form-field>
+          <br>
+          <mat-form-field>
+            <input matInput type="number" formControlName="persona_edad" placeholder="Edad" required>
+          </mat-form-field>
+          <br>
+          <mat-form-field>
+            <input matInput formControlName="persona_ciudad" placeholder="Ciudad" required>
+          </mat-form-field>
+        <div class="row-center">
+           <button  mat-raised-button color="primary">Guardar</button>
+        </div>   
+    </form>
+  </div>

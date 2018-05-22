@@ -1,0 +1,40 @@
+<style type="text/css">
+.example-container {
+  flex-direction: column;
+}
+.example-container > * {
+  width: 100%;
+}
+.mat-form-field{
+  width:400px !important;
+}
+
+.row-center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+</style>
+
+  <div class="example-container">
+    <form class="example-container" [formGroup]="_petForm" (submit)="onSubmit()">
+          <mat-form-field>
+            <input matInput formControlName="pet_nombre" placeholder="Nombre" pattern="[a-zA-Z]" required>
+          </mat-form-field>
+          <br>
+          <mat-form-field>
+            <input matInput type="number" formControlName="pet_edad" placeholder="Edad" required>
+          </mat-form-field>
+          <br>
+          <mat-form-field>
+        <mat-select placeholder="Seleccione owner" [(ngModel)]="selectedValue" formControlName="owner" required>
+            <mat-option *ngFor="let pet of personas" [value]="pet.id_persona">
+              {{pet.persona_nombre}}
+            </mat-option>
+        </mat-select>
+      </mat-form-field>
+        <div class="row-center">
+           <button  mat-raised-button color="primary">Guardar</button>
+        </div>   
+    </form>
+  </div>
